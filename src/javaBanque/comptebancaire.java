@@ -12,18 +12,18 @@ public class comptebancaire {
    }
  // retirer une somme r de notre compte
    public void debit (double r) {
-	  if(solde>r && r>0) {this.solde -= r; }
-                                 }
+	   if(solde >r && r>0) {this.solde -= r; }
+	  else { System.out.println("impossible de debité cette somme " +r );  }                         }
  // r'ajouter une somme c a notre compte
    public void credit(double c) {
 	   if(c>0) {
 	   this.solde += c; }
-                                 }
-   //virement de la somme v de notre compte vers le compte c
+	   else { System.out.println("impossible de debité cette somme " +c );  }                             }
+   //virement de la somme v de notre compte vers le compte c2
   public void virement(comptebancaire c2,double v   ) {
-	debit(v);
-	 c2.credit(v);
-	 
-	 
+	if(solde>v && v>0) { debit(v);
+	                    c2.credit(v); }
+	else { System.out.println("impossible de faire un virement de cette somme " +v );
+	                  } 
   }
 }
