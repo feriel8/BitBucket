@@ -2,27 +2,28 @@ package javaBanque;
 
 public class comptebancaire {
 	public double solde;
-	public void compte (double solde) { 
-		 this.solde=solde;
+	
+	public comptebancaire(double s) { 
+		 this.solde=s;
 	}
  //Consultation de l'etat du compte
    public void consult() {
-    System.out.println(solde );
+    System.out.println("votre solde est de " + this.solde );
    }
  // retirer une somme r de notre compte
    public void debit (double r) {
-	  do {
-	   this.solde -= r; } while(solde>r && r>0);
-   }
+	  if(solde>r && r>0) {this.solde -= r; }
+                                 }
  // r'ajouter une somme c a notre compte
    public void credit(double c) {
-	   do {
-	   this.solde += c; }while(c>0);
-   }
+	   if(c>0) {
+	   this.solde += c; }
+                                 }
    //virement de la somme v de notre compte vers le compte c
   public void virement(comptebancaire c2,double v   ) {
 	debit(v);
 	 c2.credit(v);
+	 
 	 
   }
 }
